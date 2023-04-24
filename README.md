@@ -1,5 +1,7 @@
 # Sierpinski's Triangle
 
+[![pre-commit hooks](https://github.com/Sylruilshu/sierpinskis-triangle/actions/workflows/ci.yaml/badge.svg)](https://github.com/Sylruilshu/sierpinskis-triangle/actions/workflows/ci.yaml)
+
 ## Local environment setup
 
 1. Navigate to the root of the project, and create a virtual environment:
