@@ -36,6 +36,18 @@
     pre-commit install
     ```
 
+## Running the program
+
+Run the following command to view avaliable command line arguments:
+```bash
+python cli/sierpinskis_triangle_cli.py --help
+```
+
+To generate the triangle using sensible defaults, run:
+```bash
+python cli/sierpinskis_triangle_cli.py
+```
+
 ## Installing new dependencies
 
 This project uses `pip-compile` to [manage dependencies](https://youtu.be/LAig6s9Hkj0).

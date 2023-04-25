@@ -20,6 +20,9 @@ import click
     help="Set window/triangle size",
 )
 def main(iterations: int, pixels: int) -> None:
+    """
+    A utility to visualise Sierpinski's triangle
+    """
     X = pixels
     Y = round(X * sin(radians(60)), 2)
     AREA = (X * Y) / 2
@@ -32,12 +35,10 @@ def main(iterations: int, pixels: int) -> None:
 
     def determine_starting_point() -> tuple:
         random_index = randint(1, 3)
-        random_starting_point = TRIANGLE_POINTS[random_index]
-        return random_starting_point
+        return TRIANGLE_POINTS[random_index]
 
     def midpoint(a: tuple, b: tuple) -> tuple:
-        average_point = (round((a[0] + b[0]) / 2, 2), round((a[1] + b[1]) / 2, 2))
-        return average_point
+        return (round((a[0] + b[0]) / 2, 2), round((a[1] + b[1]) / 2, 2))
 
     def area_of_triangle(point_1: tuple, point_2: tuple, point_3: tuple) -> int:
         x1, y1 = point_1[0], point_1[1]
@@ -45,20 +46,16 @@ def main(iterations: int, pixels: int) -> None:
         x3, y3 = point_3[0], point_3[1]
         return abs((x1 * (y2 - y3) + x2 * (y3 - y1) + x3 * (y1 - y2)) / 2)
 
-    def is_inside_triangle(
-        random_point: tuple, first_point: tuple, second_point: tuple, third_point
-    ) -> bool:
-        a1 = area_of_triangle(random_point, second_point, third_point)
-        a2 = area_of_triangle(first_point, random_point, third_point)
-        a3 = area_of_triangle(first_point, second_point, random_point)
+    def is_inside_triangle(random_point: tuple) -> bool:
+        a1 = area_of_triangle(random_point, TRIANGLE_POINTS[2], TRIANGLE_POINTS[3])
+        a2 = area_of_triangle(TRIANGLE_POINTS[1], random_point, TRIANGLE_POINTS[3])
+        a3 = area_of_triangle(TRIANGLE_POINTS[1], TRIANGLE_POINTS[2], random_point)
         return AREA == (a1 + a2 + a3)
 
     def generate_random_point() -> tuple:
         while True:
             random_point = generate_random_initial_point()
-            if is_inside_triangle(
-                random_point, TRIANGLE_POINTS[1], TRIANGLE_POINTS[2], TRIANGLE_POINTS[3]
-            ):
+            if is_inside_triangle(random_point):
                 break
 
         return random_point
