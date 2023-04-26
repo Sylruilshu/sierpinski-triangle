@@ -6,7 +6,7 @@ from math import sin, radians
 X = 1000
 Y = round(X * sin(radians(60)), 2)
 AREA = (X * Y) / 2
-TRIANGLE_POINTS = {1: (0, Y), 2: (X, Y), 3: (X / 2, 0)}
+TRIANGLE_VERTICES = {1: (0, Y), 2: (X, Y), 3: (X / 2, 0)}
 
 
 def generate_random_initial_point() -> tuple:
@@ -17,7 +17,7 @@ def generate_random_initial_point() -> tuple:
 
 def determine_starting_point() -> tuple:
     random_index = randint(1, 3)
-    random_starting_point = TRIANGLE_POINTS[random_index]
+    random_starting_point = TRIANGLE_VERTICES[random_index]
     return random_starting_point
 
 
@@ -46,7 +46,10 @@ def generate_random_point() -> tuple:
     while True:
         random_point = generate_random_initial_point()
         if is_inside_triangle(
-            random_point, TRIANGLE_POINTS[1], TRIANGLE_POINTS[2], TRIANGLE_POINTS[3]
+            random_point,
+            TRIANGLE_VERTICES[1],
+            TRIANGLE_VERTICES[2],
+            TRIANGLE_VERTICES[3],
         ):
             break
 
