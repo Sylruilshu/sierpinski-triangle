@@ -2,6 +2,22 @@
 
 [![pre-commit hooks](https://github.com/Sylruilshu/sierpinskis-triangle/actions/workflows/ci.yaml/badge.svg)](https://github.com/Sylruilshu/sierpinskis-triangle/actions/workflows/ci.yaml)
 
+**Overview**
+
+This project makes use of tkinter to visualise Sierpinskis triangle and has two main variants.
+
+1. Static:
+
+    Simply constructs and displays the triangle based on preconfigured values. i.e window/triangle size and amount of points used.
+
+2. Cli:
+
+    This variant employs command line arguments and has two versions, both allowing the user to determine the values used to generate the triangle.
+
+    -   Version 1 - does not validate if the initial point is inside the triangle.
+
+    -   Version 2 - does validate if the initial point is inside the triangle.
+
 ## Local environment setup
 
 1. Navigate to the root of the project, and create a virtual environment:
@@ -36,17 +52,19 @@
     pre-commit install
     ```
 
-## Running the program
+## Usage
 
-Run the following command to view avaliable command line arguments:
-```bash
-python cli/sierpinskis_triangle_v1.py --help
-```
+- Run the following command to view available command line arguments:
 
-To generate the triangle using sensible defaults, run:
-```bash
-python cli/sierpinskis_triangle_v1.py
-```
+    ```bash
+    python cli/sierpinskis_triangle_v1.py --help
+    ```
+
+- To generate the triangle using sensible defaults, run:
+
+    ```bash
+    python cli/sierpinskis_triangle_v1.py
+    ```
 
 ## Installing new dependencies
 
