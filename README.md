@@ -40,12 +40,12 @@
 
 Run the following command to view avaliable command line arguments:
 ```bash
-python cli/sierpinskis_triangle_cli.py --help
+python cli/sierpinskis_triangle_v1.py --help
 ```
 
 To generate the triangle using sensible defaults, run:
 ```bash
-python cli/sierpinskis_triangle_cli.py
+python cli/sierpinskis_triangle_v1.py
 ```
 
 ## Installing new dependencies
